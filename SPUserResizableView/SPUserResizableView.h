@@ -8,6 +8,7 @@
 //  UIView subclass.
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef struct SPUserResizableViewAnchorPoint {
     CGFloat adjustsX;
