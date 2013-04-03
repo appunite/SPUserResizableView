@@ -27,6 +27,11 @@ typedef struct SPUserResizableViewAnchorPoint {
     CGFloat minWidth;
     CGFloat minHeight;
     
+    // Default is YES.
+    BOOL _viewIsResizable;
+    BOOL _showDotsOnEdit;
+    BOOL _showFrameOnEdit;
+    
     // Used to determine which components of the bounds we'll be modifying, based upon where the user's touch started.
     SPUserResizableViewAnchorPoint anchorPoint;
     
@@ -47,12 +52,14 @@ typedef struct SPUserResizableViewAnchorPoint {
 
 - (void)hideEditingHandles;
 - (void)showEditingHandles;
-
 - (void)resizeUsingTouchLocation:(CGPoint)touchPoint;
+- (id)initWithFrame:(CGRect)frame viewIsResizable:(BOOL)viewIsResizable showDotsOnEdit:(BOOL)showDotsOnEdit showFrameOnEdit:(BOOL)showFrameOnEdit;
+
 @end
 
-@protocol SPUserResizableViewDelegate <NSObject>
 
+
+@protocol SPUserResizableViewDelegate <NSObject>
 @optional
 
 // Called when the resizable view receives touchesBegan: and activates the editing handles.
